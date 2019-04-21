@@ -8,12 +8,12 @@ import org.iesalandalus.programacion.reservasaulas.vista.IVistaReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.vista.VistaReservasAulas;
 */
 public class MainApp {
-
+/*
 	public static void main(String[] args) {
-		/*IVistaReservasAulas vista = new VistaReservasAulas();
+		IVistaReservasAulas vista = new VistaReservasAulas();
 		IModeloReservasAulas modelo = new ModeloReservasAulas();
 		IControladorReservasAulas controlador = new ControladorReservasAulas(modelo, vista);
-		controlador.comenzar();*/
+		controlador.comenzar();
 	}
-
+*/
 }
