@@ -12,7 +12,7 @@ import org.iesalandalus.programacion.reservasaulas.vista.IVistaReservasAulas;
 public class ControladorReservasAulas implements IControladorReservasAulas {
 	private IVistaReservasAulas vista;
 	private IModeloReservasAulas modelo;
-	
+
 	public ControladorReservasAulas(IVistaReservasAulas vista, IModeloReservasAulas modelo) {
 		this.vista = vista;
 		this.modelo = modelo;
@@ -54,6 +54,11 @@ public class ControladorReservasAulas implements IControladorReservasAulas {
 	public List<String> representarAulas() {
 		return modelo.representarAulas();
 	}
+	
+	@Override
+	public List<Aula> getAulas(){
+		return modelo.getAulas();
+	}
 
 	@Override
 	public void insertarProfesor(Profesor profesor) throws OperationNotSupportedException {
@@ -72,37 +77,46 @@ public class ControladorReservasAulas implements IControladorReservasAulas {
 	}
 
 	@Override
-	public List<String> representarProfesores(){
+	public List<String> representarProfesores() {
 		return modelo.representarProfesores();
 	}
-
+	
 	@Override
+	public List<Profesor> getProfesores(){
+		return modelo.getProfesores();
+	}
+	
 	public void realizarReserva(Reserva reserva) throws OperationNotSupportedException {
 		modelo.realizarReserva(reserva);
 	}
 
 	@Override
-	public void anularReserva(Reserva reserva) throws OperationNotSupportedException{
+	public void anularReserva(Reserva reserva) throws OperationNotSupportedException {
 		modelo.anularReserva(reserva);
 	}
 
 	@Override
-	public List<String> representarReservas(){
+	public List<String> representarReservas() {
 		return modelo.representarReservas();
 	}
 	
 	@Override
-	public List<Reserva> getReservasAula(Aula aula){
+	public List<Reserva> getReservas(){
+		return modelo.getReservas();
+	}
+
+	@Override
+	public List<Reserva> getReservasAula(Aula aula) {
 		return modelo.getReservasAula(aula);
 	}
 
 	@Override
-	public List<Reserva> getReservasProfesor(Profesor profesor){
+	public List<Reserva> getReservasProfesor(Profesor profesor) {
 		return modelo.getReservasProfesor(profesor);
 	}
 
 	@Override
-	public List<Reserva> getReservasPermanencia(Permanencia permanencia){
+	public List<Reserva> getReservasPermanencia(Permanencia permanencia) {
 		return modelo.getReservasPermanencia(permanencia);
 	}
 
@@ -111,5 +125,3 @@ public class ControladorReservasAulas implements IControladorReservasAulas {
 		return modelo.consultarDisponibilidad(aula, permanencia);
 	}
 }
-
-	

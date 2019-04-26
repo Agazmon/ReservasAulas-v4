@@ -84,7 +84,8 @@ public class Reservas {
 						coleccionReservas.add(new Reserva(reserva));
 					}
 				} else {
-					if (getReservaAulaDia(reserva.getPermanencia().getDia()).getPermanencia() instanceof PermanenciaPorHora
+					if (getReservaAulaDia(reserva.getPermanencia().getDia())
+							.getPermanencia() instanceof PermanenciaPorHora
 							& reserva.getPermanencia() instanceof PermanenciaPorHora) {
 						if (consultarDisponibilidad(reserva.getAula(), reserva.getPermanencia())) {
 							coleccionReservas.add(new Reserva(reserva));
@@ -102,6 +103,14 @@ public class Reservas {
 				}
 			}
 		}
+	}
+
+	private boolean esFechaPasada(Reserva reserva) {
+		if (reserva.getPermanencia().getDia().getDayOfYear() < LocalDate.now().getDayOfYear()
+				&& reserva.getPermanencia().getDia().getYear() <= LocalDate.now().getYear()) {
+			return true;
+		}
+		return false;
 	}
 
 	private boolean esMesSiguienteOPosterior(Reserva reserva) {
@@ -242,7 +251,9 @@ public class Reservas {
 			Reserva reserva = null;
 			do {
 				reserva = (Reserva) entrada.readObject();
-				insertar(reserva);
+				if (!esFechaPasada(reserva)) {
+					insertar(reserva);
+				}
 			} while (reserva != null);
 		} catch (ClassNotFoundException e) {
 			System.out.println("No se ha podido encontrar la clase para leer.");
