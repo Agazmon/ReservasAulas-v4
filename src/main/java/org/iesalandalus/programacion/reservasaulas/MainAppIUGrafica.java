@@ -7,7 +7,7 @@ import org.iesalandalus.programacion.reservasaulas.modelo.ModeloReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.vista.IVistaReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.vista.iugrafica.VistaReservasAulas;
 
-public class MainAppIUTextual {
+public class MainAppIUGrafica {
 
 	public static void main(String[] args) {
 		IVistaReservasAulas vista = new VistaReservasAulas();
