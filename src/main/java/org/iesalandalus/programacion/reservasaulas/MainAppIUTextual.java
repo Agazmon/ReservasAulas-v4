@@ -5,7 +5,7 @@ import org.iesalandalus.programacion.reservasaulas.controlador.IControladorReser
 import org.iesalandalus.programacion.reservasaulas.modelo.IModeloReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.modelo.ModeloReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.vista.IVistaReservasAulas;
-import org.iesalandalus.programacion.reservasaulas.vista.iugrafica.VistaReservasAulas;
+import org.iesalandalus.programacion.reservasaulas.vista.iutextual.VistaReservasAulas;
 
 public class MainAppIUTextual {
 

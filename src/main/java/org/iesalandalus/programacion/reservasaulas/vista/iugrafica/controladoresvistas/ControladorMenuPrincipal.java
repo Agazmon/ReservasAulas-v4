@@ -2,6 +2,8 @@ package org.iesalandalus.programacion.reservasaulas.vista.iugrafica.controladore
 
 import java.io.IOException;
 
+import javax.swing.plaf.ActionMapUIResource;
+
 import org.iesalandalus.programacion.reservasaulas.controlador.IControladorReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.vista.iugrafica.utilidades.Dialogos;
 
@@ -27,6 +29,10 @@ import javafx.stage.Stage;
 public class ControladorMenuPrincipal {
 	
 	private IControladorReservasAulas controladorMVC;
+	private ControladorVentanaAulas cAulas;
+	private ControladorVentanaProfesores cProfesores;
+	private ControladorVentanaReservas cReservas;
+	
 	private Stage ventanaAulas;
 	private Stage ventanaProfesores;
 	private Stage ventanaReservas;
@@ -42,7 +48,7 @@ public class ControladorMenuPrincipal {
 	@FXML
 	private void mostrarVentanaAulas() throws IOException {
 		crearVentanaAulas();
-		ventanaAulas.showAndWait();
+		ventanaAulas.show();
 	}
 	
 	@FXML
@@ -57,8 +63,8 @@ public class ControladorMenuPrincipal {
 		ventanaReservas.showAndWait();
 	}
 	
-	@FXML
-	private void salir() {
+	@FXML 
+	void salir() {
 		if (Dialogos.mostrarDialogoConfirmacion("Salir", "¿Estás seguro de que quieres salir de la aplicación?", null)) {
 			controladorMVC.salir();
 			System.exit(0);
@@ -66,7 +72,7 @@ public class ControladorMenuPrincipal {
 	}
 	
  	@FXML
-	void acercaDe() {
+	private void acercaDe() {
 		
 		Alert dialogo = new Alert(AlertType.INFORMATION);
 		dialogo.setTitle("Acerca de ...");
@@ -87,20 +93,24 @@ public class ControladorMenuPrincipal {
 	}
 
 	@FXML
-	void crearVentanaAulas() throws IOException{
+	private void crearVentanaAulas() throws IOException{
 		if (ventanaAulas == null) {
 			ventanaAulas = new Stage();
 			FXMLLoader cargadorVentanaAulas = new FXMLLoader(getClass().getResource("../vistas/VentanaAulas.fxml"));
 			VBox raizVentanaAulas = cargadorVentanaAulas.load();
+			ControladorVentanaAulas conAulas = cargadorVentanaAulas.getController();
+			
+			conAulas.setControlador(controladorMVC);
+			conAulas.actualizarDatos();
 			Scene escenaVentanaAulas = new Scene(raizVentanaAulas);
 			ventanaAulas.setTitle("Administración de Aulas");
-			ventanaAulas.initModality(Modality.APPLICATION_MODAL); 
+			ventanaAulas.initModality(Modality.NONE); 
 			ventanaAulas.setScene(escenaVentanaAulas);
 		}
 	}
 
 	@FXML
-	void crearVentanaProfesores() throws IOException{
+	private void crearVentanaProfesores() throws IOException{
 		if (ventanaProfesores == null) {
 			ventanaProfesores = new Stage();
 			FXMLLoader cargadorVentanaProfesores = new FXMLLoader(getClass().getResource("../vistas/VentanaProfesores.fxml"));
