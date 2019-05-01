@@ -115,7 +115,7 @@ public class ControladorVentanaAulas {
 				return true;
 			}
 			String nombre = aula.getNombre().toLowerCase();
-			return nombre.startsWith(nv.toLowerCase());
+			return nombre.contains(nv.toLowerCase());
 			})
     	);
     	
@@ -125,7 +125,7 @@ public class ControladorVentanaAulas {
     			return true;
     		}
     		String nombre = reserva.getAula().getNombre().toLowerCase();
-    		return nombre.startsWith(nv.toLowerCase());
+    		return nombre.contains(nv.toLowerCase());
     		})
     	
     	);
