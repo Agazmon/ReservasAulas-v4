@@ -42,7 +42,6 @@ import javafx.stage.Stage;
 
 public class ControladorVentanaAulas {
 
-    
     @FXML private Button btAnadir;
     @FXML private Button btBorrar;
     @FXML private Button btVolver;
@@ -191,7 +190,7 @@ public class ControladorVentanaAulas {
 		ventanaBorrar.setScene(escenaVentanaBorrar);
 		ventanaBorrar.setResizable(false);
    		ventanaBorrar.showAndWait();
-   		if((boolean)btAnadir.getScene().getWindow().isFocused()){
+   		if((boolean)btBorrar.getScene().getWindow().isFocused()){
    			actualizarDatos(); 
    		}
     }

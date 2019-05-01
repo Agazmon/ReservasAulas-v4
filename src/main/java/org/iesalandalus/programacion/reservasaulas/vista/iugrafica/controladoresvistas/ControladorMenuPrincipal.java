@@ -99,7 +99,6 @@ public class ControladorMenuPrincipal {
 			FXMLLoader cargadorVentanaAulas = new FXMLLoader(getClass().getResource("../vistas/VentanaAulas.fxml"));
 			VBox raizVentanaAulas = cargadorVentanaAulas.load();
 			ControladorVentanaAulas conAulas = cargadorVentanaAulas.getController();
-			
 			conAulas.setControlador(controladorMVC);
 			conAulas.actualizarDatos();
 			Scene escenaVentanaAulas = new Scene(raizVentanaAulas);
@@ -115,6 +114,9 @@ public class ControladorMenuPrincipal {
 			ventanaProfesores = new Stage();
 			FXMLLoader cargadorVentanaProfesores = new FXMLLoader(getClass().getResource("../vistas/VentanaProfesores.fxml"));
 			VBox raizVentanaProfesores = cargadorVentanaProfesores.load();
+			ControladorVentanaProfesores conProfesores = cargadorVentanaProfesores.getController();
+			conProfesores.setControlador(controladorMVC);
+			conProfesores.actualizarDatos();
 			Scene escenaVentanaProfesores = new Scene(raizVentanaProfesores);
 			ventanaProfesores.setTitle("Administración de Profesores");
 			ventanaProfesores.initModality(Modality.APPLICATION_MODAL); 

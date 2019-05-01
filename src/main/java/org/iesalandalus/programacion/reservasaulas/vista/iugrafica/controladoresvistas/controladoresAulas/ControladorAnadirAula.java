@@ -11,7 +11,10 @@ import javafx.stage.Stage;
 
 public class ControladorAnadirAula {
 
-    @FXML private TextField tfCapacidad;
+    private static final String ER_OBLIGATORIO = ".+";
+    private static final String ER_CAPACIDAD = "[0-9]{1,3}";
+    
+	@FXML private TextField tfCapacidad;
     @FXML private Button btAceptar;
     @FXML private TextField tfNombre;
     @FXML private Button btCancelar;
@@ -21,8 +24,20 @@ public class ControladorAnadirAula {
     public void setControlador(IControladorReservasAulas modelo) {
     	this.controladorMVC=modelo;
     }
+    @FXML 
+    private void initialize(){
+    	tfNombre.textProperty().addListener((ob, ov, nv) -> comprobarTexto(ER_OBLIGATORIO, tfNombre));
+    	tfCapacidad.textProperty().addListener((ob, ov, nv) -> comprobarTexto(ER_CAPACIDAD, tfCapacidad));
+    }
     
-    @FXML
+    private void comprobarTexto(String er, TextField campoTexto) {
+		if (!campoTexto.getText().matches(er)) {
+			campoTexto.setStyle("-fx-border-color: red");
+		} else {
+			campoTexto.setStyle("-fx-border-color: green");
+		}
+	}
+	@FXML
     void cancelar() {
     	Stage ventana = (Stage) btCancelar.getScene().getWindow();
     	ventana.close();
@@ -31,21 +46,9 @@ public class ControladorAnadirAula {
     @FXML
     void aceptar() {
     	try {
-    		String nombre = tfNombre.getText();
-    		String capacidad = tfCapacidad.getText();
-			if(nombre == null || nombre.trim().equals("")) {
-				tfNombre.setStyle("-fx-border-color: red");
-			}
-			else {
-				tfNombre.setStyle("-fx-border-color: green");
-			}
-			if(!capacidad.matches("[0-9]{1,3}")){
-				tfCapacidad.setStyle("-fx-border-color: red");
-			} else {
-				tfCapacidad.setStyle("-fx-border-color: green");
-			}
-			if(nombre != null && !nombre.trim().equals("") && capacidad.matches("[0-9]{1,3}")) {
-				controladorMVC.insertarAula(new Aula(nombre, Integer.parseInt(capacidad)));
+    		if(tfNombre.getStyle().equals("-fx-border-color: green")&& tfCapacidad.getStyle().equals("-fx-border-color: green")) {
+				controladorMVC.insertarAula(new Aula(tfNombre.getText(), Integer.parseInt(tfCapacidad.getText())));
+				Dialogos.mostrarDialogoInformacion("Aula añadida", "El aula ha sido añadida satisfactoriamente.");
 				Stage stage = (Stage) btAceptar.getScene().getWindow();
 				stage.close();
 			}

@@ -14,14 +14,25 @@ public class ControladorBorrarAula {
 		@FXML private Button btAceptar;
 	    @FXML private TextField tfNombre;
 	    @FXML private Button btCancelar;
-
+	    private String ER_OBLIGATORIO  = ".+";
 	    private IControladorReservasAulas controladorMVC;
 	    
 	    public void setControlador(IControladorReservasAulas modelo) {
 	    	this.controladorMVC=modelo;
 	    }
+	    @FXML 
+	    private void initialize(){
+	    	tfNombre.textProperty().addListener((ob, ov, nv)-> comprobarTexto(ER_OBLIGATORIO, tfNombre));
+	    }
 	    
-	    @FXML
+	    private void comprobarTexto(String er, TextField campoTexto) {
+			if(campoTexto.getText().matches(er)) {
+				campoTexto.setStyle("fx-border-color: green");
+			} else {
+				campoTexto.setStyle("fx-border-color: red");
+			}
+		}
+		@FXML
 	    void cancelar() {
 	    	Stage ventana = (Stage) btCancelar.getScene().getWindow();
 	    	ventana.close();
@@ -30,16 +41,11 @@ public class ControladorBorrarAula {
 	    @FXML
 	    void aceptar() {
 	    	try {
-	    		String nombre = tfNombre.getText();
-		    	if(nombre == null || nombre.trim().equals("")) {
-					tfNombre.setStyle("-fx-border-color: red");
-				} else {
-					tfNombre.setStyle("fx-border-color: green");
-				}
-		    	if (nombre != null || !nombre.trim().equals("")) {
-		    		Aula aulaBorrar = new Aula(nombre, 15);
+	    		
+		    	if (tfNombre.getStyle().equals("fx-border-color: green")) {
+		    		Aula aulaBorrar = new Aula(tfNombre.getText(), 15);
 		    		controladorMVC.borrarAula(controladorMVC.buscarAula(aulaBorrar));
-		    		Dialogos.mostrarDialogoInformacion("Accion realizada", "Usted ha borrado el aula: " + nombre);
+		    		Dialogos.mostrarDialogoInformacion("Accion realizada", "Usted ha borrado el aula: " + tfNombre.getText());
 		    		Stage stage = (Stage) btAceptar.getScene().getWindow();
 		    		stage.close();
 		    	}
