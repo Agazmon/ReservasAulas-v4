@@ -214,7 +214,6 @@ public class ControladorVentanaAulas {
     void volver(ActionEvent event) {
     	Stage ventana = (Stage) btVolver.getScene().getWindow();
     	ventana.close();
-    	
     }
 
     public void actualizarDatos() {
