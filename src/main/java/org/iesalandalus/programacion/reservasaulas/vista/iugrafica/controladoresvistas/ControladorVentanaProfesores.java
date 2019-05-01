@@ -164,7 +164,7 @@ public class ControladorVentanaProfesores {
 		ControladorAnadirProfesor conProfesor = cargadorVentanaInsertar.getController();
 		conProfesor.setControlador(controladorMVC);
 		Scene escenaVentanaInsertar = new Scene(raizVentanaInsertar);
-		ventanaAnadir.setTitle("Añadir aula");
+		ventanaAnadir.setTitle("Añadir Profesor/a");
 		ventanaAnadir.initModality(Modality.WINDOW_MODAL); 
 		ventanaAnadir.setScene(escenaVentanaInsertar);
 		ventanaAnadir.setResizable(false);
@@ -182,7 +182,7 @@ public class ControladorVentanaProfesores {
 		ControladorBorrarProfesor conProfesor = cargadorVentanaBorrar.getController();
 		conProfesor.setControlador(controladorMVC);
 		Scene escenaVentanaBorrar = new Scene(raizVentanaBorrar);
-		ventanaBorrar.setTitle("Borrar aula");
+		ventanaBorrar.setTitle("Borrar profesor/a");
 		ventanaBorrar.initModality(Modality.WINDOW_MODAL); 
 		ventanaBorrar.setScene(escenaVentanaBorrar);
 		ventanaBorrar.setResizable(false);
