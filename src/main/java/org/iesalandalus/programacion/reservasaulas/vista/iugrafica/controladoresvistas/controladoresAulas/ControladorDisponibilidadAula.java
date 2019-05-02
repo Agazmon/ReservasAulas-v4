@@ -55,10 +55,9 @@ public class ControladorDisponibilidadAula {
 	}
 		
 
-	private void comprobarFecha(LocalDate value) {
-			if (dpSelectorFecha.getValue().getDayOfYear() < LocalDate.now().plus(1, ChronoUnit.MONTHS).getDayOfYear() || dpSelectorFecha.getValue().getYear()<LocalDate.now().getYear()) {
+	private void comprobarFecha(LocalDate fecha) {
+			if (fecha.getDayOfYear() < LocalDate.now().plus(1, ChronoUnit.MONTHS).getDayOfYear() || fecha.getYear()<LocalDate.now().getYear()) {
 				btAceptar.setTooltip(fechaInvalida);
-				btAceptar.setDisable(true);
 			} else {
 				btAceptar.setTooltip(null);
 				btAceptar.setDisable(false);
