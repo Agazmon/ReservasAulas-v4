@@ -131,11 +131,13 @@ public class ControladorMenuPrincipal {
 			ventanaReservas = new Stage();
 			FXMLLoader cargadorVentanaReservas = new FXMLLoader(getClass().getResource("../vistas/VentanaReservas.fxml"));
 			VBox raizVentanaReservas = cargadorVentanaReservas.load();
+			ControladorVentanaReservas conReservas = cargadorVentanaReservas.getController();
+			conReservas.setControlador(controladorMVC);
+			conReservas.actualizarDatos();
 			Scene escenaVentanaReservas = new Scene(raizVentanaReservas);
-			ventanaReservas.setTitle("Administracion de Reservas");
+			ventanaReservas.setTitle("Administración de Reservas");
 			ventanaReservas.initModality(Modality.APPLICATION_MODAL); 
 			ventanaReservas.setScene(escenaVentanaReservas);
 		}
 	}
-
 }
