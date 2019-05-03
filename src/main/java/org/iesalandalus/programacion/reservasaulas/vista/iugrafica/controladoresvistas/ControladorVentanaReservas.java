@@ -5,7 +5,6 @@ import java.time.format.DateTimeFormatter;
 
 import org.iesalandalus.programacion.reservasaulas.controlador.IControladorReservasAulas;
 import org.iesalandalus.programacion.reservasaulas.modelo.dominio.Reserva;
-import org.iesalandalus.programacion.reservasaulas.vista.iugrafica.controladoresvistas.controladoresReservas.ControladorBorrarReserva;
 import org.iesalandalus.programacion.reservasaulas.vista.iugrafica.controladoresvistas.controladoresReservas.ControladorRealizarReserva;
 import org.iesalandalus.programacion.reservasaulas.vista.iugrafica.utilidades.Dialogos;
 
@@ -32,7 +31,6 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.TitledPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
@@ -125,7 +123,7 @@ public class ControladorVentanaReservas {
 		Alert dialogo = new Alert(AlertType.INFORMATION);
 		dialogo.setTitle("Acerca de ...");
 		DialogPane panelDialogo = dialogo.getDialogPane();
-		//panelDialogo.getStylesheets().add(getClass().getResource("../iugventanas.css").toExternalForm());
+		panelDialogo.getStylesheets().add(getClass().getResource("../iugventanas.css").toExternalForm());
 		panelDialogo.lookupButton(ButtonType.OK).setId("btAceptar");
 		VBox contenido = new VBox();
 		contenido.setAlignment(Pos.CENTER);

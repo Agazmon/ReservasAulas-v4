@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.reservasaulas.vista.iugrafica.controladoresvistas.ControladorMenuPrincipal">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" stylesheets="@../iugventanas.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.reservasaulas.vista.iugrafica.controladoresvistas.ControladorMenuPrincipal">
    <children>
       <MenuBar>
         <menus>
@@ -26,9 +26,9 @@
       </MenuBar>
       <HBox prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
          <children>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
-                  <Button fx:id="btAulas" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#mostrarVentanaAulas" prefHeight="420.0" prefWidth="220.0" text="Aulas">
+                  <Button fx:id="btAulas" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#mostrarVentanaAulas" prefHeight="420.0" prefWidth="220.0" stylesheets="@../iugventanas.css" text="Aulas">
                      <HBox.margin>
                         <Insets bottom="2.0" left="2.0" right="2.0" top="2.0" />
                      </HBox.margin>
@@ -51,7 +51,7 @@
                   <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <Button fx:id="btProfesores" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#mostrarVentanaProfesores" prefHeight="420.0" prefWidth="220.0" text="Profesores">
                      <HBox.margin>
@@ -76,7 +76,7 @@
                   <Insets bottom="5.0" left="20.0" right="20.0" top="20.0" />
                </padding>
             </HBox>
-            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0">
+            <HBox alignment="CENTER" layoutX="10.0" layoutY="10.0" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
                <children>
                   <Button fx:id="btReservas" contentDisplay="BOTTOM" mnemonicParsing="false" onAction="#mostrarVentanaReservas" prefHeight="420.0" prefWidth="220.0" text="Reservas">
                      <HBox.margin>

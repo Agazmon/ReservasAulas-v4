@@ -73,11 +73,10 @@ public class ControladorMenuPrincipal {
 	
  	@FXML
 	private void acercaDe() {
-		
 		Alert dialogo = new Alert(AlertType.INFORMATION);
 		dialogo.setTitle("Acerca de ...");
 		DialogPane panelDialogo = dialogo.getDialogPane();
-		//panelDialogo.getStylesheets().add(getClass().getResource("../iugventanas.css").toExternalForm());
+		panelDialogo.getStylesheets().add(getClass().getResource("../iugventanas.css").toExternalForm());
 		panelDialogo.lookupButton(ButtonType.OK).setId("btAceptar");
 		VBox contenido = new VBox();
 		contenido.setAlignment(Pos.CENTER);
